@@ -1,0 +1,56 @@
+
+  mat-label, label,h1{
+    color: blue;
+  }
+
+  mat-form-field{
+    background-color: white;
+    margin: 15px;
+    /* border-bottom-color: blue; */
+    border-bottom: 1px solid blue;
+  }
+
+  mat-label{
+    margin: 8px;
+  }
+
+  h2{
+    margin: 10px;
+    padding: 10px;
+  }
+
+  /* .example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+   */
+  
+  button{
+    width: 100px;
+    margin-left: 80%
+  }
+
+
+  ::ng-deep.mat-form-field-underline {
+    /*change color of underline*/
+    background-color: transparent !important;
+  } 
+
+  ::ng-deep.mat-form-field-ripple {
+    /*change color of underline when focused*/
+    background-color: transparent !important;;
+   }
+
+   .about{
+    position: absolute;
+    left: 150px; 
+    right: 100px;
+   }
+
+   .details{
+    color: red;
+    position: absolute;
+    left: 150px;
+     top: 0px
+   }

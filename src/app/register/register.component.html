@@ -1,0 +1,125 @@
+<mat-grid-list cols="5" rowHeight="1:2" >
+  <mat-grid-tile colspan="2" rowspan="1">
+  
+<div class="about">
+    <table>
+      <tr>
+        <td style="color: blue" class="mat-body">REVIEW YOUR APPLICATION</td>
+      </tr>
+      <tr>
+        <td><h1 class="mat-display-1">Confirm your contact details</h1></td>
+      </tr>
+      <tr>
+        <td>We'll use these details if we need to get in touch about your coverage</td>
+      </tr>
+    </table>
+    
+  </div>
+    <div>
+    
+  </div>
+  </mat-grid-tile>
+  <mat-grid-tile colspan="3" rowspan="1"  >
+      <div class="medium-list">
+          <div style="background-color: rgb(248, 245, 245);  ">
+            <br>
+              <div mat-subheader  style="color: blue"><h2>Your contact info</h2></div>
+        <form [formGroup]="registerForm" (ngSubmit)="registerForm.valid && onRegisterSubmit(registerForm.value)" >
+              <div class="form-container">
+
+                <table>
+                  <tr>
+                    <td>
+                        <mat-form-field>
+                      <mat-label>First Name</mat-label>
+                      <br>
+                        <input matInput formControlName="firstName"
+                         />
+                         <mat-error *ngIf="errorHandling('firstName', 'required')">
+                            <!-- This field is required -->
+                            This field is required
+                         </mat-error>
+                                 
+                      </mat-form-field>
+                    </td>
+                    <td>
+                        <mat-form-field >
+                            <mat-label>Last Name</mat-label>
+                            <br>
+                            <input 
+                                   matInput
+                                   formControlName="lastName"
+                                   />
+                                   <mat-error *ngIf="errorHandling('lastName', 'required')">
+                                      This field is required
+                                   </mat-error>
+                                           
+                          </mat-form-field>
+                    </td>
+                  </tr>
+                </table>
+              
+                <mat-form-field>
+                    <mat-label>Email address</mat-label>
+                    <br>
+                    <input 
+                           matInput
+                           formControlName="email"
+                    />
+                    <mat-error *ngIf="errorHandling('email', 'required')">
+                        This field is required
+                     </mat-error>
+
+                     <mat-error *ngIf="errorHandling('email', 'email') && !errorHandling('email', 'required')">
+                        <!-- This field is required -->
+                        Please enter a valid email address
+                     </mat-error>
+                           
+                  </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Phone number</mat-label>
+                    <br>
+                    <input 
+                           matInput
+                           formControlName="phoneNumber"
+                           />
+
+                           <mat-error *ngIf="errorHandling('phoneNumber', 'required')">
+                              This field is required
+                           </mat-error>
+                           <mat-error *ngIf="!this.registerForm.controls['phoneNumber'].valid && !errorHandling('phoneNumber', 'required')">
+                              Please enter a valid phone number
+                            </mat-error>
+                      
+                  </mat-form-field>
+                  <br>
+                  <br>
+                  <div style="border-bottom: 1px solid blue;"></div>
+                  <br >
+                  <button mat-flat-button color="primary" type="submit" 
+                  class="mat-raised-button mat-primary" 
+                  >Next</button>
+              </div>
+            </form>
+          </div>
+        </div>
+    
+  </mat-grid-tile>
+
+  <mat-grid-tile colspan="2" rowspan="2"  >
+      <div *ngIf="showDetails"  class="details">
+         First name: {{user.firstName}}  <br>
+         Last name: {{user.lastName}}<br>
+         Email address: {{user.email}}<br>
+         Phone number: {{changedPhoneNumber}}
+        </div>
+    </mat-grid-tile>
+</mat-grid-list>
+
+
+
+
+
+
+
+
